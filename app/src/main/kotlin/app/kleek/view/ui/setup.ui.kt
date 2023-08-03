@@ -20,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
@@ -67,7 +68,7 @@ fun RootSetupScreen(
             AlertDialog(
                 onDismissRequest = { alertDialogEnabled = false },
                 title = {
-                    Text(text = activity.getString(R.string.alert_title))
+                    Text(stringResource(id = R.string.alert_title))
                 },
                 text = {
                     Text(text = content)
@@ -76,7 +77,7 @@ fun RootSetupScreen(
                     Button(
                         onClick = { alertDialogEnabled = false }
                     ) {
-                        Text(text = activity.getString(R.string.confirm_button))
+                        Text(stringResource(id = R.string.confirm_button))
                     }
                 },
             )
@@ -87,7 +88,7 @@ fun RootSetupScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                text = activity.getString(R.string.need_root_permission),
+                stringResource(id = R.string.need_root_permission),
                 style = MaterialTheme.typography.titleLarge
             )
 
@@ -104,7 +105,7 @@ fun RootSetupScreen(
                 },
                 modifier = Modifier.padding(top = 16.dp)
             ) {
-                Text(text = activity.getString(R.string.request_permission))
+                Text(stringResource(id = R.string.request_permission))
             }
         }
 
@@ -122,7 +123,7 @@ fun RootSetupScreen(
                 .width(100.dp),
             enabled = nextEnabled
         ) {
-            Text(text = activity.getString(R.string.next_button))
+            Text(stringResource(id = R.string.next_button))
         }
     }
 }
@@ -145,7 +146,7 @@ fun ReadySetupScreen(
             AlertDialog(
                 onDismissRequest = { alertDialogEnabled = false },
                 title = {
-                    Text(text = activity.getString(R.string.alert_title))
+                    Text(stringResource(id = R.string.alert_title))
                 },
                 text = {
                     Text(text = content)
@@ -154,7 +155,7 @@ fun ReadySetupScreen(
                     Button(
                         onClick = { alertDialogEnabled = false }
                     ) {
-                        Text(text = activity.getString(R.string.confirm_button))
+                        Text(stringResource(id = R.string.confirm_button))
                     }
                 },
             )
@@ -166,13 +167,13 @@ fun ReadySetupScreen(
         ) {
             // title
             Text(
-                text = activity.getString(R.string.create_configuration_title),
+                stringResource(id = R.string.create_configuration_title),
                 style = MaterialTheme.typography.titleLarge
             )
 
             // description
             Text(
-                text = activity.getString(R.string.create_configuration_content),
+                stringResource(id = R.string.create_configuration_content),
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 16.dp)
             )
@@ -192,7 +193,7 @@ fun ReadySetupScreen(
                 },
                 modifier = Modifier.padding(top = 16.dp)
             ) {
-                Text(text = activity.getString(R.string.create_configuration_button))
+                Text(stringResource(id = R.string.create_configuration_button))
             }
         }
 
@@ -215,7 +216,7 @@ fun ReadySetupScreen(
                 .width(100.dp),
             enabled = nextEnabled
         ) {
-            Text(text = activity.getString(R.string.complete_button))
+            Text(stringResource(id = R.string.complete_button))
         }
     }
 }
