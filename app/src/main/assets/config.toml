@@ -1,0 +1,158 @@
+[2410230]
+locoClassName = "com.kakao.talk.loco.net.server.LocoClient"
+locoRequestMethod = "o"
+locoResponseMethod = "j"
+
+locoProtocolClass = "com.kakao.talk.loco.protocol.c"
+locoHeaderClass = "com.kakao.talk.loco.protocol.a"
+locoBodyClass = "com.kakao.talk.loco.protocol.LocoBody"
+locoMethodClass = "com.kakao.talk.loco.protocol.b"
+
+locoGetHeaderField = "a"
+locoGetBodyField = "c"
+
+locoPacketIdField = "a"
+locoStatusField = "b"
+locoMethodField = "c"
+
+locoMethodBytesMethod = "getMethodBytes"
+locoMethodNameMethod = "getMethodName"
+
+locoBodyToMap = "q"
+
+locoReqClass = "t11.a"
+locoResClass = "t11.b"
+
+chatTypeClass = "ww.a"
+chatTypeFinderClass = "ww.a$a"
+chatTypeFinderFindMethod = "a"
+
+chatSendingLogClass = "com.kakao.talk.manager.send.sending.ChatSendingLog"
+chatSendingLogBuilderClass = "com.kakao.talk.manager.send.sending.ChatSendingLog$b"
+
+chatSendingLogBuilderMessageProperty = "d"
+chatSendingLogBuilderAttachmentProperty = "c"
+chatSendingLogBuilderBuildMethod = "a"
+
+chatSendingLogRequestClass = "com.kakao.talk.manager.send.ChatSendingLogRequest"
+chatSendingTypeClass = "com.kakao.talk.manager.send.ChatSendingLogRequest$c"
+
+chatLogSendingMethod = "u"
+
+chatRoomClass = "ew.f"
+
+chatRoomListManagerClass = "ew.r0"
+chatRoomListRealManagerClass = "ew.r0$a"
+
+chatRoomListManagerProperty = "p"
+chatRoomListRealProperty = "d"
+
+parseChannelIdMethod = "o"
+
+sendEventHandlerClass = "com.kakao.talk.manager.send.o"
+
+[2410270]
+locoClassName = "com.kakao.talk.loco.net.server.LocoClient"
+locoRequestMethod = "o"
+locoResponseMethod = "j"
+
+locoProtocolClass = "com.kakao.talk.loco.protocol.c"
+locoHeaderClass = "com.kakao.talk.loco.protocol.a"
+locoBodyClass = "com.kakao.talk.loco.protocol.LocoBody"
+locoMethodClass = "com.kakao.talk.loco.protocol.b"
+
+locoGetHeaderField = "a"
+locoGetBodyField = "c"
+
+locoPacketIdField = "a"
+locoStatusField = "b"
+locoMethodField = "c"
+
+locoMethodBytesMethod = "getMethodBytes"
+locoMethodNameMethod = "getMethodName"
+
+locoBodyToMap = "q"
+
+locoReqClass = "f31.a"
+locoResClass = "f31.b"
+
+chatTypeClass = "qx.a"
+chatTypeFinderClass = "qx.a$a"
+chatTypeFinderFindMethod = "a"
+
+chatSendingLogClass = "com.kakao.talk.manager.send.sending.ChatSendingLog"
+chatSendingLogBuilderClass = "com.kakao.talk.manager.send.sending.ChatSendingLog$b"
+
+chatSendingLogBuilderMessageProperty = "d"
+chatSendingLogBuilderAttachmentProperty = "c"
+chatSendingLogBuilderBuildMethod = "a"
+
+chatSendingLogRequestClass = "com.kakao.talk.manager.send.ChatSendingLogRequest"
+chatSendingTypeClass = "com.kakao.talk.manager.send.ChatSendingLogRequest$c"
+
+chatLogSendingMethod = "u"
+
+chatRoomClass = "zw.f"
+
+chatRoomListManagerClass = "zw.m0"
+chatRoomListRealManagerClass = "zw.m0$a"
+
+chatRoomListManagerProperty = "p"
+chatRoomListRealProperty = "d"
+
+parseChannelIdMethod = "p"
+
+sendEventHandlerClass = "com.kakao.talk.manager.send.o"
+
+[2410280]
+locoClassName = "com.kakao.talk.loco.net.server.LocoClient"
+locoRequestMethod = "o"
+locoResponseMethod = "j"
+
+locoProtocolClass = "com.kakao.talk.loco.protocol.c"
+locoHeaderClass = "com.kakao.talk.loco.protocol.a"
+locoBodyClass = "com.kakao.talk.loco.protocol.LocoBody"
+locoMethodClass = "com.kakao.talk.loco.protocol.b"
+
+locoGetHeaderField = "a"
+locoGetBodyField = "c"
+
+locoPacketIdField = "a"
+locoStatusField = "b"
+locoMethodField = "c"
+
+locoMethodBytesMethod = "getMethodBytes"
+locoMethodNameMethod = "getMethodName"
+
+locoBodyToMap = "q"
+
+locoReqClass = "f31.a"
+locoResClass = "f31.b"
+
+chatTypeClass = "qx.a"
+chatTypeFinderClass = "qx.a$a"
+chatTypeFinderFindMethod = "a"
+
+chatSendingLogClass = "com.kakao.talk.manager.send.sending.ChatSendingLog"
+chatSendingLogBuilderClass = "com.kakao.talk.manager.send.sending.ChatSendingLog$b"
+
+chatSendingLogBuilderMessageProperty = "d"
+chatSendingLogBuilderAttachmentProperty = "c"
+chatSendingLogBuilderBuildMethod = "a"
+
+chatSendingLogRequestClass = "com.kakao.talk.manager.send.ChatSendingLogRequest"
+chatSendingTypeClass = "com.kakao.talk.manager.send.ChatSendingLogRequest$c"
+
+chatLogSendingMethod = "u"
+
+chatRoomClass = "zw.f"
+
+chatRoomListManagerClass = "zw.m0"
+chatRoomListRealManagerClass = "zw.m0$a"
+
+chatRoomListManagerProperty = "p"
+chatRoomListRealProperty = "d"
+
+parseChannelIdMethod = "p"
+
+sendEventHandlerClass = "com.kakao.talk.manager.send.o"
