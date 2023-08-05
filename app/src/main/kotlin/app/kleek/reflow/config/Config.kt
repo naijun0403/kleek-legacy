@@ -2,6 +2,7 @@ package app.kleek.reflow.config
 
 import app.kleek.core.constant.Constant
 import app.kleek.expand.DefaultToml
+import com.topjohnwu.superuser.Shell
 import com.topjohnwu.superuser.io.SuFile
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -35,7 +36,9 @@ data class Config(
 
             if (!file.exists()) throw IllegalStateException("Config file not found")
 
-            return DefaultToml.decodeFromString(serializer(), file.readText())
+            val fileContent = Shell.su("cat ${file.absolutePath}").exec().out.joinToString("\n")
+
+            return DefaultToml.decodeFromString(serializer(), fileContent)
         }
     }
 }

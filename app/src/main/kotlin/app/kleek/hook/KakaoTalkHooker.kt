@@ -12,6 +12,8 @@ class KakaoTalkHooker : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         val settings = SettingModel.load()
 
+        Logger.log("test: ${lpparam.packageName}")
+
         if (lpparam.packageName != settings.packageName || !settings.powerOn) return
 
         Logger.log("KakaoTalkHooker: ${lpparam.packageName}")
