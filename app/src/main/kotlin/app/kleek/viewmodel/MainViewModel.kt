@@ -20,6 +20,11 @@ data class SettingModel(
             )
         }
 
+        fun save(settingModel: SettingModel) {
+            OptionHelper.writeOption("packageName", settingModel.packageName)
+            OptionHelper.writeOption("powerOn", settingModel.powerOn)
+        }
+
     }
 
 }

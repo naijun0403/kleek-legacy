@@ -47,7 +47,7 @@ object OptionHelper {
                 else -> throw IllegalArgumentException("Unsupported type: ${value::class.java}")
             }
         }.let {
-            file.writeText(DefaultJson.encodeToString(JsonObject.serializer(), it))
+            file.newOutputStream().write(DefaultJson.encodeToString(JsonObject.serializer(), it).toByteArray())
         }
     }
 
