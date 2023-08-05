@@ -32,7 +32,7 @@ android {
         }
     }
     sourceSets {
-        getByName("main") {
+        getByName("main").run {
             java.srcDir("src/main/kotlin")
         }
     }
