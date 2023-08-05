@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialog
@@ -141,48 +142,104 @@ fun HomeScreen() {
 
         Spacer(modifier = Modifier.padding(30.dp))
 
-        Card(
+        if (SettingModel.load().powerOn) {
+            BotEnabledCard()
+        } else {
+            BotDisabledCard()
+        }
+    }
+}
+
+@Composable
+fun BotEnabledCard() {
+    Card(
+        modifier = Modifier
+            .size(
+                width = 350.dp,
+                height = 110.dp
+            ),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary
+        )
+    ) {
+        Column(
             modifier = Modifier
-                .size(
-                    width = 350.dp,
-                    height = 110.dp
-                )
-                .align(Alignment.CenterHorizontally),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.primary,
-                contentColor = MaterialTheme.colorScheme.onPrimary
-            )
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Column(
+            Row(
                 modifier = Modifier
-                    .fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
+                    .fillMaxSize()
+                    .padding(16.dp)
+                    .padding(start = 16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
             ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp)
-                        .padding(start = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Start
-                ) {
-                    Image(
-                        imageVector = Icons.Default.CheckCircle,
-                        contentDescription = "check",
-                        modifier = Modifier.size(25.dp),
-                        colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
-                    )
+                Image(
+                    imageVector = Icons.Default.CheckCircle,
+                    contentDescription = "check",
+                    modifier = Modifier.size(25.dp),
+                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
+                )
 
-                    Spacer(modifier = Modifier.padding(20.dp))
+                Spacer(modifier = Modifier.padding(20.dp))
 
-                    Column {
-                        Text(text = "활성화 됨", fontSize = 18.sp)
+                Column {
+                    Text(text = "활성화 됨", fontSize = 18.sp)
 
-                        Spacer(modifier = Modifier.padding(2.dp))
+                    Spacer(modifier = Modifier.padding(2.dp))
 
-                        Text(text = "현재 버전 정보: ${Constant.version}")
-                    }
+                    Text(text = "현재 버전 정보: ${Constant.version}")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun BotDisabledCard() {
+    Card(
+        modifier = Modifier
+            .size(
+                width = 350.dp,
+                height = 110.dp
+            ),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.error,
+            contentColor = MaterialTheme.colorScheme.onError
+        )
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp)
+                    .padding(start = 16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Image(
+                    imageVector = Icons.Default.Close,
+                    contentDescription = "check",
+                    modifier = Modifier.size(25.dp),
+                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
+                )
+
+                Spacer(modifier = Modifier.padding(20.dp))
+
+                Column {
+                    Text(text = "활성화 안됨", fontSize = 18.sp)
+
+                    Spacer(modifier = Modifier.padding(2.dp))
+
+                    Text(text = "현재 버전 정보: ${Constant.version}")
                 }
             }
         }
@@ -196,7 +253,9 @@ fun SettingsScreen() {
     var dialogTitle by remember { mutableStateOf("") }
     var dialogValue by remember { mutableStateOf("") }
     var dialogOnClick: (String) -> Unit by remember { mutableStateOf({}) }
-    
+
+    var botPowerOn by remember { mutableStateOf(SettingModel.load().powerOn) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -207,8 +266,11 @@ fun SettingsScreen() {
         SettingsElement(title = "봇 설정") {
             SwitchButton(
                 title = "봇 활성화",
-                checked = true,
-                onCheckedChange = { /*TODO*/ }
+                checked = botPowerOn,
+                onCheckedChange = {
+                    botPowerOn = it
+                    SettingModel.save(SettingModel.load().copy(powerOn = it))
+                }
             )
 
             DialogInput(
@@ -227,7 +289,6 @@ fun SettingsScreen() {
     }
     
     if (dialog) {
-        // input dialog
         AlertDialog(
             onDismissRequest = { dialog = false },
             title = { Text(text = dialogTitle) },
