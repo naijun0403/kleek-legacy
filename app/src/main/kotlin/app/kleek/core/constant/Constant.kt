@@ -10,6 +10,6 @@ object Constant {
     @SuppressLint("SdCardPath")
     const val configPath = "/data/system/kleek/kleek_config.toml" // 버전 정보
 
-    const val version = "0.0.1 (dev)" // 버전
+    const val version = "0.0.2 (dev)" // 버전
 
 }

@@ -89,4 +89,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
 
     compileOnly(libs.xposed)
+
+//    implementation(libs.pine.core)
+//    implementation(libs.pine.xposed)
 }

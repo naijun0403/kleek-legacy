@@ -52,6 +52,8 @@ data class VersionConfig(
     val chatRoomListManagerProperty: String,
     val chatRoomListRealProperty: String,
 
+    val chatRoomChannelIdField: String,
+
     val parseChannelIdMethod: String,
 
     val sendEventHandlerClass: String

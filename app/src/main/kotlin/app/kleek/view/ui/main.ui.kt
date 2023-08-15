@@ -67,37 +67,36 @@ fun KleekNavigationBar(activity: ComponentActivity) {
     Scaffold(
         bottomBar = {
             NavigationBar {
-                val list = listOf(
-                    NavigationBarItem(
-                        icon = { Icon(Icons.Default.Home, contentDescription = "home") },
-                        label = { Text(stringResource(id = R.string.home)) },
-                        selected = selectedItem == 0,
-                        onClick = {
-                            selectedItem = 0
-                            navController.navigate("home") {
-                                navController.graph.startDestinationRoute?.let {
-                                    popUpTo(it) { saveState = true }
-                                }
-                                launchSingleTop = true
-                                restoreState = true
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Home, contentDescription = "home") },
+                    label = { Text(stringResource(id = R.string.home)) },
+                    selected = selectedItem == 0,
+                    onClick = {
+                        selectedItem = 0
+                        navController.navigate("home") {
+                            navController.graph.startDestinationRoute?.let {
+                                popUpTo(it) { saveState = true }
                             }
+                            launchSingleTop = true
+                            restoreState = true
                         }
-                    ),
-                    NavigationBarItem(
-                        icon = { Icon(Icons.Default.Settings, contentDescription = "settings") },
-                        label = { Text(stringResource(id = R.string.settings)) },
-                        selected = selectedItem == 1,
-                        onClick = {
-                            selectedItem = 1
-                            navController.navigate("settings") {
-                                navController.graph.startDestinationRoute?.let {
-                                    popUpTo(it) { saveState = true }
-                                }
-                                launchSingleTop = true
-                                restoreState = true
+                    }
+                )
+
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Settings, contentDescription = "settings") },
+                    label = { Text(stringResource(id = R.string.settings)) },
+                    selected = selectedItem == 1,
+                    onClick = {
+                        selectedItem = 1
+                        navController.navigate("settings") {
+                            navController.graph.startDestinationRoute?.let {
+                                popUpTo(it) { saveState = true }
                             }
+                            launchSingleTop = true
+                            restoreState = true
                         }
-                    ),
+                    }
                 )
             }
         },

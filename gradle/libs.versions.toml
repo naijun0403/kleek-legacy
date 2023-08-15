@@ -14,6 +14,8 @@ compose-bom = "2023.03.00"
 navigation-compose = "2.6.0"
 xposed = "82"
 libsu = "5.1.0"
+pine-core = "0.2.6"
+pine-xposed = "0.0.9"
 
 [libraries]
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist-systemuicontroller" }
@@ -40,6 +42,8 @@ libsu-nio = { module = "com.github.topjohnwu.libsu:nio", version.ref = "libsu" }
 libsu-io = { module = "com.github.topjohnwu.libsu:io", version.ref = "libsu" }
 libsu-core = { module = "com.github.topjohnwu.libsu:core", version.ref = "libsu" }
 libsu-service = { module = "com.github.topjohnwu.libsu:service", version.ref = "libsu" }
+pine-core = { module = "top.canyie.pine:core", version.ref = "pine-core" }
+pine-xposed = { module = "top.canyie.pine:xposed", version.ref = "pine-xposed" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -47,6 +47,8 @@ chatRoomListRealManagerClass = "ew.r0$a"
 chatRoomListManagerProperty = "p"
 chatRoomListRealProperty = "d"
 
+chatRoomChannelIdField = "c"
+
 parseChannelIdMethod = "o"
 
 sendEventHandlerClass = "com.kakao.talk.manager.send.o"
@@ -100,6 +102,8 @@ chatRoomListRealManagerClass = "zw.m0$a"
 chatRoomListManagerProperty = "p"
 chatRoomListRealProperty = "d"
 
+chatRoomChannelIdField = "c"
+
 parseChannelIdMethod = "p"
 
 sendEventHandlerClass = "com.kakao.talk.manager.send.o"
@@ -152,6 +156,8 @@ chatRoomListRealManagerClass = "zw.m0$a"
 
 chatRoomListManagerProperty = "p"
 chatRoomListRealProperty = "d"
+
+chatRoomChannelIdField = "c"
 
 parseChannelIdMethod = "p"
 

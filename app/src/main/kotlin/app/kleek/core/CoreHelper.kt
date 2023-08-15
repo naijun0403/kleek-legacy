@@ -1,6 +1,7 @@
 package app.kleek.core
 
 import android.content.ContextWrapper
+import app.kleek.reflow.config.VersionConfig
 
 object CoreHelper {
 
@@ -9,5 +10,8 @@ object CoreHelper {
      *  반드시 사용자가 실행한 앱에서 사용해야 함
      */
     var contextGetter: (() -> ContextWrapper)? = null
+
+    var versionConfigGetter: (() -> VersionConfig)? = null
+    var classLoaderGetter: (() -> ClassLoader)? = null
 
 }
