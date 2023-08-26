@@ -159,6 +159,22 @@ chatRoomListRealProperty = "d"
 
 chatRoomChannelIdField = "c"
 
+chatRoomLinkIdField = "L"
+
+chatRoomTypeMethod = "R"
+
+chatRoomNameMethod = "Q"
+
+chatRoomMemberSetMethod = "F"
+
 parseChannelIdMethod = "p"
 
 sendEventHandlerClass = "com.kakao.talk.manager.send.o"
+
+chatMemberSetClass = "u00.h"
+chatMemberSetWatermarkManagerField = "e"
+
+chatRoomTypeClass = "cx.b"
+
+watermarkClass = "u00.h0"
+watermarkMemberListField = "a"

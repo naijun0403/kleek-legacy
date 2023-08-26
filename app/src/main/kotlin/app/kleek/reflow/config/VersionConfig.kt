@@ -54,7 +54,23 @@ data class VersionConfig(
 
     val chatRoomChannelIdField: String,
 
+    val chatRoomLinkIdField: String,
+
+    val chatRoomTypeMethod: String,
+
+    val chatRoomNameMethod: String,
+
+    val chatRoomMemberSetMethod: String,
+
     val parseChannelIdMethod: String,
 
-    val sendEventHandlerClass: String
+    val sendEventHandlerClass: String,
+
+    val chatMemberSetClass: String,
+    val chatMemberSetWatermarkManagerField: String,
+
+    val chatRoomTypeClass: String,
+
+    val watermarkClass: String,
+    val watermarkMemberListField: String,
 )
