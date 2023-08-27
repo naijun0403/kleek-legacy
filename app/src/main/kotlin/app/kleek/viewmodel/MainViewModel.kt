@@ -1,8 +1,11 @@
 package app.kleek.viewmodel
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewmodel.ViewModelInitializer
 import app.kleek.core.OptionHelper
+import app.kleek.core.constant.Constant
+import com.topjohnwu.superuser.Shell
+import com.topjohnwu.superuser.io.SuFile
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -25,6 +28,24 @@ data class SettingModel(
             OptionHelper.writeOption("powerOn", settingModel.powerOn)
         }
 
+    }
+
+}
+
+@Serializable
+class MainViewModel : ViewModel() {
+
+    fun resetVersionConfig() {
+        val context = app.kleek.core.CoreHelper.contextGetter?.invoke() ?: return
+
+        val asset = context.assets.open("config.toml")
+        val tomlStr = asset.bufferedReader().use { it.readText() }
+
+        val file = SuFile(Constant.configPath)
+
+        Shell.cmd("rm ${file.absolutePath}").exec()
+        Shell.cmd("touch ${file.absolutePath}").exec()
+        file.newOutputStream().write(tomlStr.toByteArray())
     }
 
 }

@@ -1,6 +1,7 @@
 package app.kleek.reflow.compat.channel
 
 import app.kleek.core.CoreHelper
+import app.kleek.reflow.compat.chat.Chat
 import java.util.concurrent.Future
 
 class OpenChannel(
@@ -39,8 +40,12 @@ class OpenChannel(
         return commonChannel.getChannelType()
     }
 
-    override fun sendMessage(message: String): Future<Boolean> {
-        return commonChannel.sendMessage(message)
+    override fun sendText(message: String, noSeen: Boolean): Future<Boolean> {
+        return commonChannel.sendText(message, noSeen)
+    }
+
+    override fun send(chat: Chat, noSeen: Boolean): Future<Boolean> {
+        return commonChannel.send(chat, noSeen)
     }
 
 }

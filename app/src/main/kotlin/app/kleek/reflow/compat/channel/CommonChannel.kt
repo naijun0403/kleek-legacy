@@ -1,11 +1,15 @@
 package app.kleek.reflow.compat.channel
 
 import app.kleek.core.CoreHelper
+import app.kleek.reflow.compat.chat.Chat
 import app.kleek.reflow.compat.member.ChatMemberSet
 import app.kleek.reflow.config.VersionConfig
 import app.kleek.reflow.inapp.channel.NativeChannel
 import app.kleek.reflow.inapp.channel.NativeChannelType
+import app.kleek.reflow.inapp.chat.NativeChatSendingLogBuilder
 import app.kleek.reflow.inapp.member.NativeChatMemberSet
+import de.robv.android.xposed.XposedHelpers
+import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
 /**
@@ -18,13 +22,20 @@ class CommonChannel(
     val classLoader: ClassLoader = CoreHelper.classLoaderGetter?.invoke() ?: throw IllegalStateException("classLoader is null")
     val versionConfig: VersionConfig = CoreHelper.versionConfigGetter?.invoke() ?: throw IllegalStateException("versionConfig is null")
 
+    private val nativeExecutorService = XposedHelpers.callStaticMethod(
+        Executors::class.java,
+        "newFixedThreadPool",
+        5
+    )
+    private val executorService = Executors.newFixedThreadPool(5)
+
     override val channelId: Long
         get() {
             val versionConfig = CoreHelper.versionConfigGetter?.invoke() ?: return -1
 
             nativeChannel.chatRoomClass.getDeclaredField(versionConfig.chatRoomChannelIdField).apply {
                 isAccessible = true
-                return get(nativeChannel) as Long
+                return get(nativeChannel.channel) as Long
             }
         }
 
@@ -62,8 +73,45 @@ class CommonChannel(
         return ChannelType.fromNative(nativeModel)
     }
 
-    override fun sendMessage(message: String): Future<Boolean> {
-        TODO("Not yet implemented")
+    override fun sendText(message: String, noSeen: Boolean): Future<Boolean> {
+        return send(Chat(type = 1, text = message), noSeen)
+    }
+
+    override fun send(chat: Chat, noSeen: Boolean): Future<Boolean> {
+        val log = NativeChatSendingLogBuilder(chat.type, channelId)
+            .message(chat.text)
+            .attachment(chat.attachment)
+            .build()
+
+        return executorService.submit<Boolean> {
+            val requestClass = classLoader.loadClass(versionConfig.chatSendingLogRequestClass)
+
+            val type = classLoader.loadClass(versionConfig.chatSendingTypeClass).getDeclaredField(
+                if (noSeen) {
+                    "Connect"
+                } else "NotificationReply"
+            ).get(null)
+
+            val instance = requestClass.getConstructor(
+                classLoader.loadClass(versionConfig.chatRoomClass),
+                classLoader.loadClass(versionConfig.chatSendingLogClass),
+                classLoader.loadClass(versionConfig.chatSendingTypeClass),
+                Boolean::class.java,
+                classLoader.loadClass(versionConfig.sendEventHandlerClass),
+            ).newInstance(
+                nativeChannel.channel,
+                log,
+                type,
+                false,
+                null
+            )
+
+            XposedHelpers.callMethod(nativeExecutorService, "submit", Runnable {
+                requestClass.getDeclaredMethod(versionConfig.chatLogSendingMethod).invoke(instance)
+            })
+
+            true
+        }
     }
 
 }

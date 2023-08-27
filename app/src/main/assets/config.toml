@@ -49,9 +49,25 @@ chatRoomListRealProperty = "d"
 
 chatRoomChannelIdField = "c"
 
+chatRoomLinkIdField = "L"
+
+chatRoomTypeMethod = "R"
+
+chatRoomNameMethod = "Q"
+
+chatRoomMemberSetMethod = "F"
+
 parseChannelIdMethod = "o"
 
 sendEventHandlerClass = "com.kakao.talk.manager.send.o"
+
+chatMemberSetClass = "u00.h"
+chatMemberSetWatermarkManagerField = "e"
+
+chatRoomTypeClass = "cx.b"
+
+watermarkClass = "u00.h0"
+watermarkMemberListField = "a"
 
 [2410270]
 locoClassName = "com.kakao.talk.loco.net.server.LocoClient"
@@ -104,9 +120,25 @@ chatRoomListRealProperty = "d"
 
 chatRoomChannelIdField = "c"
 
+chatRoomLinkIdField = "L"
+
+chatRoomTypeMethod = "R"
+
+chatRoomNameMethod = "Q"
+
+chatRoomMemberSetMethod = "F"
+
 parseChannelIdMethod = "p"
 
 sendEventHandlerClass = "com.kakao.talk.manager.send.o"
+
+chatMemberSetClass = "u00.h"
+chatMemberSetWatermarkManagerField = "e"
+
+chatRoomTypeClass = "cx.b"
+
+watermarkClass = "u00.h0"
+watermarkMemberListField = "a"
 
 [2410280]
 locoClassName = "com.kakao.talk.loco.net.server.LocoClient"

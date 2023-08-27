@@ -2,8 +2,10 @@ package app.kleek.hook
 
 import app.kleek.core.CoreHelper
 import app.kleek.expand.versionCode
+import app.kleek.reflow.compat.loco.LocoProtocol
 import app.kleek.reflow.config.Config
 import app.kleek.reflow.logger.Logger
+import app.kleek.reflow.packet.handler.PacketHandler
 import app.kleek.viewmodel.SettingModel
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XC_MethodHook
@@ -11,6 +13,8 @@ import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class KakaoTalkHooker : IXposedHookLoadPackage {
+
+    val packetHandler = PacketHandler()
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         val settings = SettingModel.load()
@@ -59,6 +63,10 @@ class KakaoTalkHooker : IXposedHookLoadPackage {
                     super.beforeHookedMethod(param)
                     val protocol = param.args[0]
                     Logger.log("[RES]: $protocol")
+
+                    val packet = LocoProtocol.fromLoaded(lpparam.classLoader, protocol)
+
+                    packetHandler.handle(packet)
                 }
             },
         )

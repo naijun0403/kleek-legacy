@@ -2,7 +2,7 @@ package app.kleek.reflow.inapp.channel
 
 import app.kleek.core.CoreHelper
 
-object ChannelFinder {
+object NativeChannelFinder {
 
     fun findChannel(channelId: Long): NativeChannel? {
         val versionConfig = CoreHelper.versionConfigGetter?.invoke() ?: return null

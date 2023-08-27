@@ -50,17 +50,18 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import app.kleek.R
 import app.kleek.core.constant.Constant
+import app.kleek.viewmodel.MainViewModel
 import app.kleek.viewmodel.SettingModel
 
 @Composable
-fun MainScreen(activity: ComponentActivity) {
-    KleekNavigationBar(activity)
+fun MainScreen(activity: ComponentActivity, viewModel: MainViewModel) {
+    KleekNavigationBar(viewModel)
 }
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun KleekNavigationBar(activity: ComponentActivity) {
+fun KleekNavigationBar(viewModel: MainViewModel) {
     var selectedItem by remember { mutableStateOf(0) }
     val navController = rememberNavController()
 
@@ -108,20 +109,20 @@ fun KleekNavigationBar(activity: ComponentActivity) {
                 .padding(it),
             contentAlignment = Alignment.Center
         ) {
-            NavGraphView(navController = navController)
+            NavGraphView(navController = navController, viewModel = viewModel)
         }
     }
 }
 
 @Composable
-fun NavGraphView(navController: NavHostController) {
+fun NavGraphView(navController: NavHostController, viewModel: MainViewModel) {
     NavHost(navController = navController, startDestination = "home") {
         composable("home") {
             HomeScreen()
         }
 
         composable("settings") {
-            SettingsScreen()
+            SettingsScreen(viewModel)
         }
     }
 }
@@ -247,7 +248,7 @@ fun BotDisabledCard() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen() {
+fun SettingsScreen(viewModel: MainViewModel) {
     var dialog by remember { mutableStateOf(false) }
     var dialogTitle by remember { mutableStateOf("") }
     var dialogValue by remember { mutableStateOf("") }
@@ -272,7 +273,7 @@ fun SettingsScreen() {
                 }
             )
 
-            DialogInput(
+            SettingButton(
                 title = "패키지 이름",
                 description = "현재 값: ${SettingModel.load().packageName}",
                 buttonText = "값 변경",
@@ -283,6 +284,14 @@ fun SettingsScreen() {
                 dialogOnClick = {
                     SettingModel.save(SettingModel.load().copy(packageName = it))
                 }
+            }
+
+            SettingButton(
+                title = "버전 설정 초기화",
+                description = "메소드 버전 설정을 초기화 합니다.",
+                buttonText = "초기화"
+            ) {
+                viewModel.resetVersionConfig()
             }
         }
     }
@@ -375,7 +384,7 @@ fun SwitchButton(title: String, checked: Boolean, onCheckedChange: (Boolean) -> 
 }
 
 @Composable
-fun DialogInput(
+fun SettingButton(
     title: String,
     description: String,
     buttonText: String,

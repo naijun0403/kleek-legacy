@@ -1,8 +1,8 @@
 package app.kleek.reflow.compat.loco
 
 data class LocoMethod(
-    val methodBytes: ByteArray,
-    val methodName: String
+    val bytes: ByteArray,
+    val name: String
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10,13 +10,13 @@ data class LocoMethod(
 
         other as LocoMethod
 
-        if (!methodBytes.contentEquals(other.methodBytes)) return false
-        return methodName == other.methodName
+        if (!bytes.contentEquals(other.bytes)) return false
+        return name == other.name
     }
 
     override fun hashCode(): Int {
-        var result = methodBytes.contentHashCode()
-        result = 31 * result + methodName.hashCode()
+        var result = bytes.contentHashCode()
+        result = 31 * result + name.hashCode()
         return result
     }
 }
