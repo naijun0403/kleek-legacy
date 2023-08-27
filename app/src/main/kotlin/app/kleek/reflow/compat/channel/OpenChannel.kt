@@ -17,7 +17,7 @@ class OpenChannel(
 
             commonChannel.nativeChannel.chatRoomClass.getDeclaredField(versionConfig.chatRoomLinkIdField).apply {
                 isAccessible = true
-                return get(commonChannel.nativeChannel) as Long
+                return get(commonChannel.nativeChannel.channel) as Long
             }
         }
 

@@ -13,6 +13,7 @@ data class MessageModel(
     val sendAt: Long,
     val attachment: JsonElement? = null,
     val msgId: Long,
+    val chatLog: ChatLog,
 ) {
     companion object {
         fun fromChatLog(chatLog: ChatLog): MessageModel {
@@ -24,6 +25,7 @@ data class MessageModel(
                 chatLog.sendAt,
                 chatLog.attachment,
                 chatLog.msgId,
+                chatLog
             )
         }
     }
