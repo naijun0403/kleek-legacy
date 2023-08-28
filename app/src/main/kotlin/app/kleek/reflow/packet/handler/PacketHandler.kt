@@ -8,11 +8,16 @@ import app.kleek.reflow.compat.loco.LocoProtocol
 import app.kleek.reflow.compat.model.MessageModel
 import app.kleek.reflow.inapp.channel.NativeChannelFinder
 import app.kleek.reflow.packet.response.MessageResponse
-import app.kleek.reflow.scripts.onPacket
-import app.kleek.reflow.scripts.onResponse
+import app.kleek.reflow.script.bot.Bot
+import app.kleek.reflow.script.event.MessageEvent
+import app.kleek.reflow.scripts.main
 
 class PacketHandler {
     val channelListManager = ChannelListManager()
+
+    init {
+        main() // TODO: remove this (temporary)
+    }
 
     fun handle(packet: LocoProtocol) {
         when (packet.header.method.name) {
@@ -44,13 +49,16 @@ class PacketHandler {
 
                 val messageModel = MessageModel.fromChatLog(msg.chatLog)
 
-                // TODO: client event emitter
-                onResponse(messageModel, channel)
-                onPacket(packet.header.method.name, packet.body.json, channelListManager)
+                Bot.sendEvent(
+                    MessageEvent(
+                        messageModel,
+                        channel
+                    )
+                )
             }
 
             else -> {
-                onPacket(packet.header.method.name, packet.body.json, channelListManager)
+                // TODO: handle other packets
             }
         }
     }

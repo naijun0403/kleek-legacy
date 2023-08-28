@@ -1,18 +1,16 @@
 package app.kleek.reflow.scripts
 
-import app.kleek.reflow.channel.ChannelListManager
-import app.kleek.reflow.compat.channel.IChannel
-import app.kleek.reflow.compat.model.MessageModel
-import kotlinx.serialization.json.JsonElement
+import app.kleek.reflow.project.ProjectLoader
+import app.kleek.reflow.script.client.on
+import app.kleek.reflow.script.event.MessageEvent
 
-fun onResponse(data: MessageModel, channel: IChannel) {
+fun main() {
+    val project = ProjectLoader.createProject("test")
+    val client = project.getClient()
 
-    if (data.text == "!ping") {
-        channel.sendText("pong!")
+    client.on<MessageEvent> {
+        if (data.text == "!ping") {
+            channel.sendText("pong!")
+        }
     }
-
-}
-
-fun onPacket(method: String, data: JsonElement, channelListManager: ChannelListManager) {
-
 }
