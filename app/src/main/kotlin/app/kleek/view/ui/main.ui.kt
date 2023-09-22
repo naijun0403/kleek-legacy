@@ -254,6 +254,9 @@ fun SettingsScreen(viewModel: MainViewModel) {
     var dialogValue by remember { mutableStateOf("") }
     var dialogOnClick: (String) -> Unit by remember { mutableStateOf({}) }
 
+    var alertDialogEnabled by remember { mutableStateOf(false) }
+    var alertDialogContent by remember { mutableStateOf("") }
+
     var botPowerOn by remember { mutableStateOf(SettingModel.load().powerOn) }
 
     Column(
@@ -292,6 +295,8 @@ fun SettingsScreen(viewModel: MainViewModel) {
                 buttonText = "초기화"
             ) {
                 viewModel.resetVersionConfig()
+                alertDialogContent = "버전 설정 초기화가 완료되었습니다."
+                alertDialogEnabled = true
             }
         }
     }
@@ -324,6 +329,25 @@ fun SettingsScreen(viewModel: MainViewModel) {
                     },
                 ) {
                     Text(text = "확인")
+                }
+            },
+        )
+    }
+
+    if (alertDialogEnabled) {
+        AlertDialog(
+            onDismissRequest = { alertDialogEnabled = false },
+            title = {
+                Text(stringResource(id = R.string.alert_title))
+            },
+            text = {
+                Text(text = alertDialogContent)
+            },
+            confirmButton = {
+                Button(
+                    onClick = { alertDialogEnabled = false }
+                ) {
+                    Text(stringResource(id = R.string.confirm_button))
                 }
             },
         )

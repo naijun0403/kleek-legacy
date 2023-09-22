@@ -5,6 +5,8 @@ plugins {
     kotlin("plugin.serialization") version "1.8.21"
 }
 
+val ktor_version: String by project
+
 android {
     namespace = "app.kleek"
     compileSdk = 33
@@ -92,4 +94,7 @@ dependencies {
 
 //    implementation(libs.pine.core)
 //    implementation(libs.pine.xposed)
+
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+    implementation("io.ktor:ktor-client-cio:$ktor_version")
 }

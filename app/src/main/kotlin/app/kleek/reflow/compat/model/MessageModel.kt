@@ -10,7 +10,7 @@ data class MessageModel(
     val text: String,
     val senderId: Long,
     val type: Int,
-    val sendAt: Long,
+    val sendAt: Int,
     val attachment: JsonElement? = null,
     val msgId: Long,
     val chatLog: ChatLog,

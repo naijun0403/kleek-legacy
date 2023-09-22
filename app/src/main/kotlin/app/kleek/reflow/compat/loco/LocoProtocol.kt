@@ -29,7 +29,9 @@ data class LocoProtocol(
                 methodClass.getDeclaredMethod(versionConfig.locoMethodBytesMethod).invoke(method) as ByteArray
             val methodName = methodClass.getDeclaredMethod(versionConfig.locoMethodNameMethod).invoke(method) as String
 
-            val bodyMap = bodyClass.getDeclaredMethod(versionConfig.locoBodyToMap).invoke(body) as Map<*, *>
+            val bsonObject = bodyClass.getDeclaredField(versionConfig.locoBodyBSONObjectField).get(body)
+            val bodyMap = bsonObject.javaClass.getDeclaredMethod(versionConfig.locoBodyBSONToMapMethod).invoke(bsonObject) as Map<*, *>
+//            val bodyMap = bodyClass.getDeclaredMethod(versionConfig.locoBodyToMap).invoke(body) as Map<*, *> // 10.3.6 이후로 안씀 (사라짐)
             val bodyJson = JSONObject(bodyMap)
 
             return LocoProtocol(

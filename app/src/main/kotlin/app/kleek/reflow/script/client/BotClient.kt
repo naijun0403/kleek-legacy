@@ -1,5 +1,7 @@
 package app.kleek.reflow.script.client
 
+import app.kleek.core.CoreHelper
+import app.kleek.reflow.compat.oauth.OauthHelper
 import app.kleek.reflow.logger.Logger
 import app.kleek.reflow.script.event.Event
 import kotlinx.coroutines.CoroutineScope
@@ -24,6 +26,14 @@ class BotClient: CoroutineScope {
     val events: MutableSharedFlow<Event> = eventFlow
 
     override val coroutineContext: CoroutineContext = SupervisorJob() + Dispatchers.Default
+
+    val oauthHelper: OauthHelper by lazy {
+        if (CoreHelper.oauthGetter == null) {
+            CoreHelper.oauthGetter = { OauthHelper.create() }
+        }
+
+        CoreHelper.oauthGetter!!.invoke()
+    }
 
     fun sendEvent(event: Event) {
         Logger.log("Sending event $event")

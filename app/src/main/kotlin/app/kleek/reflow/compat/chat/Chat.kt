@@ -15,6 +15,13 @@ data class Chat(
     val text: String,
     val attachment: JsonObject = buildJsonObject { },
 ) {
+
+    constructor(
+        type: ChatType,
+        text: String,
+        attachment: JsonObject = buildJsonObject { },
+    ) : this(type.type, text, attachment)
+
     companion object {
         fun newBuilder(): Builder {
             return Builder()
@@ -22,6 +29,7 @@ data class Chat(
     }
 
     class Builder {
+
         private var message = ""
         private var attachment = mutableMapOf<String, JsonElement>()
         private var supplement = mutableMapOf<String, JsonElement>()
@@ -62,5 +70,7 @@ data class Chat(
                 ).jsonObject
             )
         }
+
     }
+
 }

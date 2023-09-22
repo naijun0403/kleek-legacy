@@ -6,6 +6,8 @@ import com.akuleshov7.ktoml.TomlInputConfig
 import com.akuleshov7.ktoml.TomlOutputConfig
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
+import org.json.JSONObject
 
 @OptIn(ExperimentalSerializationApi::class)
 val DefaultJson = Json {
@@ -26,3 +28,7 @@ val DefaultToml = Toml(
         indentation = TomlIndentation.FOUR_SPACES,
     )
 )
+
+inline fun JSONObject.toKotlinxSerialization(): JsonObject {
+    return DefaultJson.decodeFromString(JsonObject.serializer(), toString())
+}

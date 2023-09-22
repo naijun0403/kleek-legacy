@@ -8,7 +8,11 @@ import app.kleek.reflow.inapp.channel.NativeChannel
 import app.kleek.reflow.inapp.channel.NativeChannelType
 import app.kleek.reflow.inapp.chat.NativeChatSendingLogBuilder
 import app.kleek.reflow.inapp.member.NativeChatMemberSet
+import app.kleek.reflow.logger.Logger
+import app.kleek.reflow.packet.struct.ChatLog
 import de.robv.android.xposed.XposedHelpers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
@@ -22,11 +26,6 @@ class CommonChannel(
     val classLoader: ClassLoader = CoreHelper.classLoaderGetter?.invoke() ?: throw IllegalStateException("classLoader is null")
     val versionConfig: VersionConfig = CoreHelper.versionConfigGetter?.invoke() ?: throw IllegalStateException("versionConfig is null")
 
-    private val nativeExecutorService = XposedHelpers.callStaticMethod(
-        Executors::class.java,
-        "newFixedThreadPool",
-        5
-    )
     private val executorService = Executors.newFixedThreadPool(5)
 
     override val channelId: Long
@@ -73,17 +72,17 @@ class CommonChannel(
         return ChannelType.fromNative(nativeModel)
     }
 
-    override fun sendText(message: String, noSeen: Boolean): Future<Boolean> {
+    override fun sendText(message: String, noSeen: Boolean): Result<ChatLog> {
         return send(Chat(type = 1, text = message), noSeen)
     }
 
-    override fun send(chat: Chat, noSeen: Boolean): Future<Boolean> {
+    override fun send(chat: Chat, noSeen: Boolean): Result<ChatLog> {
         val log = NativeChatSendingLogBuilder(chat.type, channelId)
             .message(chat.text)
             .attachment(chat.attachment)
             .build()
 
-        return executorService.submit<Boolean> {
+        return CoroutineScope(Dispatchers.IO).runCatching {
             val requestClass = classLoader.loadClass(versionConfig.chatSendingLogRequestClass)
 
             val type = classLoader.loadClass(versionConfig.chatSendingTypeClass).getDeclaredField(
@@ -106,11 +105,9 @@ class CommonChannel(
                 null
             )
 
-            XposedHelpers.callMethod(nativeExecutorService, "submit", Runnable {
-                requestClass.getDeclaredMethod(versionConfig.chatLogSendingMethod).invoke(instance)
-            })
+            val result = requestClass.getDeclaredMethod(versionConfig.chatLogSendingMethod).invoke(instance)
 
-            true
+            ChatLog.fromNativeChatLog(result ?: throw IllegalStateException("result is null"))
         }
     }
 

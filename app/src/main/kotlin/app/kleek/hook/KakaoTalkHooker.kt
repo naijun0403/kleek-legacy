@@ -3,9 +3,11 @@ package app.kleek.hook
 import app.kleek.core.CoreHelper
 import app.kleek.expand.versionCode
 import app.kleek.reflow.compat.loco.LocoProtocol
+import app.kleek.reflow.compat.oauth.OauthHelper
 import app.kleek.reflow.config.Config
 import app.kleek.reflow.logger.Logger
 import app.kleek.reflow.packet.handler.PacketHandler
+import app.kleek.reflow.scripts.main
 import app.kleek.viewmodel.SettingModel
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XC_MethodHook
@@ -32,6 +34,8 @@ class KakaoTalkHooker : IXposedHookLoadPackage {
 
         CoreHelper.versionConfigGetter = { versionConfig }
         CoreHelper.classLoaderGetter = { lpparam.classLoader }
+
+        main()
 
         /**
          * Hook LocoRequest

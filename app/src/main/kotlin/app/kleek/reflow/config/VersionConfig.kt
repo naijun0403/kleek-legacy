@@ -23,7 +23,9 @@ data class VersionConfig(
     val locoMethodBytesMethod: String,
     val locoMethodNameMethod: String,
 
-    val locoBodyToMap: String,
+    val locoBodyToMapMethod: String, // 10.3.6 이후로 안씀 (사라짐)
+    val locoBodyBSONObjectField: String,
+    val locoBodyBSONToMapMethod: String,
 
     val locoReqClass: String,
     val locoResClass: String,
@@ -73,4 +75,28 @@ data class VersionConfig(
 
     val watermarkClass: String,
     val watermarkMemberListField: String,
+
+    val oauthHelperClass: String,
+    val oauthHelperStaticClass: String,
+    val oauthHelperStaticInstanceField: String,
+    val oauthHelperGetTokenMethod: String,
+    val oauthHelperGetAuthorization: String,
+
+    val hardwareClass: String,
+    val hardwareInstanceField: String,
+    val hardwareGetDeviceUUIDMethod: String,
+
+    val chatLogClass: String,
+
+    val chatLogLogIdField: String,
+    val chatLogChatIdField: String,
+    val chatLogTypeField: String,
+    val chatLogAuthorIdField: String,
+    val chatLogAttachmentField: String,
+    val chatLogMessageField: String,
+    val chatLogSendAtField: String,
+    val chatLogMessageIdField: String,
+    val chatLogPrevIdField: String,
+    val chatLogRefererField: String,
+    val chatLogSupplementField: String,
 )

@@ -1,6 +1,7 @@
 package app.kleek.reflow.compat.channel
 
 import app.kleek.reflow.compat.chat.Chat
+import app.kleek.reflow.packet.struct.ChatLog
 import java.util.concurrent.Future
 
 interface IChannel {
@@ -15,8 +16,8 @@ interface IChannel {
 
     fun getChannelType(): ChannelType
 
-    fun sendText(message: String, noSeen: Boolean = false): Future<Boolean>
+    fun sendText(message: String, noSeen: Boolean = false): Result<ChatLog>
 
-    fun send(chat: Chat, noSeen: Boolean = false): Future<Boolean>
+    fun send(chat: Chat, noSeen: Boolean = false): Result<ChatLog>
 
 }

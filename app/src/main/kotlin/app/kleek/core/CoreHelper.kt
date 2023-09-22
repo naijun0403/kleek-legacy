@@ -1,6 +1,7 @@
 package app.kleek.core
 
 import android.content.ContextWrapper
+import app.kleek.reflow.compat.oauth.OauthHelper
 import app.kleek.reflow.config.VersionConfig
 
 object CoreHelper {
@@ -13,5 +14,6 @@ object CoreHelper {
 
     var versionConfigGetter: (() -> VersionConfig)? = null
     var classLoaderGetter: (() -> ClassLoader)? = null
+    var oauthGetter: (() -> OauthHelper)? = null
 
 }
