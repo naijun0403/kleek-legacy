@@ -54,7 +54,7 @@ import app.kleek.viewmodel.MainViewModel
 import app.kleek.viewmodel.SettingModel
 
 @Composable
-fun MainScreen(activity: ComponentActivity, viewModel: MainViewModel) {
+fun MainScreen(viewModel: MainViewModel) {
     KleekNavigationBar(viewModel)
 }
 

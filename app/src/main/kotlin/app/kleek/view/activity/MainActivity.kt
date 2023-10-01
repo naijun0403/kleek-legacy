@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
 //                    MainScreen()
 //                }
 
-                MainScreen(this@MainActivity, viewModel)
+                MainScreen(viewModel)
             }
         }
     }
