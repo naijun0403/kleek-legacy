@@ -1,197 +1,3 @@
-[2410230]
-locoClassName = "com.kakao.talk.loco.net.server.LocoClient"
-locoRequestMethod = "o"
-locoResponseMethod = "j"
-
-locoProtocolClass = "com.kakao.talk.loco.protocol.c"
-locoHeaderClass = "com.kakao.talk.loco.protocol.a"
-locoBodyClass = "com.kakao.talk.loco.protocol.LocoBody"
-locoMethodClass = "com.kakao.talk.loco.protocol.b"
-
-locoGetHeaderField = "a"
-locoGetBodyField = "c"
-
-locoPacketIdField = "a"
-locoStatusField = "b"
-locoMethodField = "c"
-
-locoMethodBytesMethod = "getMethodBytes"
-locoMethodNameMethod = "getMethodName"
-
-locoBodyToMapMethod = "q"
-locoBodyBSONObjectField = "a"
-locoBodyBSONToMapMethod = "toMap"
-
-locoReqClass = "t11.a"
-locoResClass = "t11.b"
-
-chatTypeClass = "ww.a"
-chatTypeFinderClass = "ww.a$a"
-chatTypeFinderFindMethod = "a"
-
-chatSendingLogClass = "com.kakao.talk.manager.send.sending.ChatSendingLog"
-chatSendingLogBuilderClass = "com.kakao.talk.manager.send.sending.ChatSendingLog$b"
-
-chatSendingLogBuilderMessageProperty = "d"
-chatSendingLogBuilderAttachmentProperty = "c"
-chatSendingLogBuilderBuildMethod = "a"
-
-chatSendingLogRequestClass = "com.kakao.talk.manager.send.ChatSendingLogRequest"
-chatSendingTypeClass = "com.kakao.talk.manager.send.ChatSendingLogRequest$c"
-
-chatLogSendingMethod = "u"
-
-chatRoomClass = "ew.f"
-
-chatRoomListManagerClass = "ew.r0"
-chatRoomListRealManagerClass = "ew.r0$a"
-
-chatRoomListManagerProperty = "p"
-chatRoomListRealProperty = "d"
-
-chatRoomChannelIdField = "c"
-
-chatRoomLinkIdField = "L"
-
-chatRoomTypeMethod = "R"
-
-chatRoomNameMethod = "Q"
-
-chatRoomMemberSetMethod = "F"
-
-parseChannelIdMethod = "o"
-
-sendEventHandlerClass = "com.kakao.talk.manager.send.o"
-
-chatMemberSetClass = "u00.h"
-chatMemberSetWatermarkManagerField = "e"
-
-chatRoomTypeClass = "cx.b"
-
-watermarkClass = "u00.h0"
-watermarkMemberListField = "a"
-
-oauthHelperClass = "p91.a"
-oauthHelperStaticClass = "p91.a$a"
-oauthHelperStaticInstanceField = "a"
-oauthHelperGetTokenMethod = "a"
-oauthHelperGetAuthorization = "d"
-
-hardwareClass = "di1.C20017n0"
-hardwareInstanceField = "a"
-hardwareGetDeviceUUIDMethod = "l"
-
-chatLogClass = "z00.c"
-
-chatLogLogIdField = "b"
-chatLogChatIdField = "e"
-chatLogTypeField = "c"
-chatLogAuthorIdField = "f"
-chatLogAttachmentField = "i"
-chatLogMessageField = "g"
-chatLogSendAtField = "j"
-chatLogMessageIdField = "l"
-chatLogPrevIdField = "q"
-chatLogRefererField = "t"
-chatLogSupplementField = "v"
-
-[2410270]
-locoClassName = "com.kakao.talk.loco.net.server.LocoClient"
-locoRequestMethod = "o"
-locoResponseMethod = "j"
-
-locoProtocolClass = "com.kakao.talk.loco.protocol.c"
-locoHeaderClass = "com.kakao.talk.loco.protocol.a"
-locoBodyClass = "com.kakao.talk.loco.protocol.LocoBody"
-locoMethodClass = "com.kakao.talk.loco.protocol.b"
-
-locoGetHeaderField = "a"
-locoGetBodyField = "c"
-
-locoPacketIdField = "a"
-locoStatusField = "b"
-locoMethodField = "c"
-
-locoMethodBytesMethod = "getMethodBytes"
-locoMethodNameMethod = "getMethodName"
-
-locoBodyToMapMethod = "q"
-locoBodyBSONObjectField = "a"
-locoBodyBSONToMapMethod = "toMap"
-
-locoReqClass = "f31.a"
-locoResClass = "f31.b"
-
-chatTypeClass = "qx.a"
-chatTypeFinderClass = "qx.a$a"
-chatTypeFinderFindMethod = "a"
-
-chatSendingLogClass = "com.kakao.talk.manager.send.sending.ChatSendingLog"
-chatSendingLogBuilderClass = "com.kakao.talk.manager.send.sending.ChatSendingLog$b"
-
-chatSendingLogBuilderMessageProperty = "d"
-chatSendingLogBuilderAttachmentProperty = "c"
-chatSendingLogBuilderBuildMethod = "a"
-
-chatSendingLogRequestClass = "com.kakao.talk.manager.send.ChatSendingLogRequest"
-chatSendingTypeClass = "com.kakao.talk.manager.send.ChatSendingLogRequest$c"
-
-chatLogSendingMethod = "u"
-
-chatRoomClass = "zw.f"
-
-chatRoomListManagerClass = "zw.m0"
-chatRoomListRealManagerClass = "zw.m0$a"
-
-chatRoomListManagerProperty = "p"
-chatRoomListRealProperty = "d"
-
-chatRoomChannelIdField = "c"
-
-chatRoomLinkIdField = "L"
-
-chatRoomTypeMethod = "R"
-
-chatRoomNameMethod = "Q"
-
-chatRoomMemberSetMethod = "F"
-
-parseChannelIdMethod = "p"
-
-sendEventHandlerClass = "com.kakao.talk.manager.send.o"
-
-chatMemberSetClass = "u00.h"
-chatMemberSetWatermarkManagerField = "e"
-
-chatRoomTypeClass = "cx.b"
-
-watermarkClass = "u00.h0"
-watermarkMemberListField = "a"
-
-oauthHelperClass = "p91.a"
-oauthHelperStaticClass = "p91.a$a"
-oauthHelperStaticInstanceField = "a"
-oauthHelperGetTokenMethod = "a"
-oauthHelperGetAuthorization = "d"
-
-hardwareClass = "di1.C20017n0"
-hardwareInstanceField = "a"
-hardwareGetDeviceUUIDMethod = "l"
-
-chatLogClass = "z00.c"
-
-chatLogLogIdField = "b"
-chatLogChatIdField = "e"
-chatLogTypeField = "c"
-chatLogAuthorIdField = "f"
-chatLogAttachmentField = "i"
-chatLogMessageField = "g"
-chatLogSendAtField = "j"
-chatLogMessageIdField = "l"
-chatLogPrevIdField = "q"
-chatLogRefererField = "t"
-chatLogSupplementField = "v"
-
 [2410280]
 locoClassName = "com.kakao.talk.loco.net.server.LocoClient"
 locoRequestMethod = "o"
@@ -373,6 +179,103 @@ hardwareInstanceField = "a"
 hardwareGetDeviceUUIDMethod = "l"
 
 chatLogClass = "z00.c"
+
+chatLogLogIdField = "b"
+chatLogChatIdField = "e"
+chatLogTypeField = "c"
+chatLogAuthorIdField = "f"
+chatLogAttachmentField = "i"
+chatLogMessageField = "g"
+chatLogSendAtField = "j"
+chatLogMessageIdField = "l"
+chatLogPrevIdField = "q"
+chatLogRefererField = "t"
+chatLogSupplementField = "v"
+
+[2610370]
+locoClassName = "com.kakao.talk.loco.net.server.LocoClient"
+locoRequestMethod = "o"
+locoResponseMethod = "j"
+
+locoProtocolClass = "com.kakao.talk.loco.protocol.d"
+locoHeaderClass = "com.kakao.talk.loco.protocol.b"
+locoBodyClass = "com.kakao.talk.loco.protocol.LocoBody"
+locoMethodClass = "com.kakao.talk.loco.protocol.c"
+
+locoGetHeaderField = "a"
+locoGetBodyField = "c"
+
+locoPacketIdField = "a"
+locoStatusField = "b"
+locoMethodField = "c"
+
+locoMethodBytesMethod = "getMethodBytes"
+locoMethodNameMethod = "getMethodName"
+
+locoBodyToMapMethod = "q"
+locoBodyBSONObjectField = "a"
+locoBodyBSONToMapMethod = "toMap"
+
+locoReqClass = "s21.a"
+locoResClass = "s21.b"
+
+chatTypeClass = "ux.a"
+chatTypeFinderClass = "ux.a$a"
+chatTypeFinderFindMethod = "a"
+
+chatSendingLogClass = "com.kakao.talk.manager.send.sending.ChatSendingLog"
+chatSendingLogBuilderClass = "com.kakao.talk.manager.send.sending.ChatSendingLog$b"
+
+chatSendingLogBuilderMessageProperty = "d"
+chatSendingLogBuilderAttachmentProperty = "c"
+chatSendingLogBuilderBuildMethod = "a"
+
+chatSendingLogRequestClass = "com.kakao.talk.manager.send.ChatSendingLogRequest"
+chatSendingTypeClass = "com.kakao.talk.manager.send.ChatSendingLogRequest$c"
+
+chatLogSendingMethod = "q"
+
+chatRoomClass = "cx.h"
+
+chatRoomListManagerClass = "cx.s0"
+chatRoomListRealManagerClass = "cx.s0$a"
+
+chatRoomListManagerProperty = "p"
+chatRoomListRealProperty = "d"
+
+chatRoomChannelIdField = "c"
+
+chatRoomLinkIdField = "L"
+
+chatRoomTypeMethod = "Q"
+
+chatRoomNameMethod = "P"
+
+chatRoomMemberSetMethod = "G"
+
+parseChannelIdMethod = "m"
+
+sendEventHandlerClass = "com.kakao.talk.manager.send.o"
+
+chatMemberSetClass = "a10.i"
+chatMemberSetWatermarkManagerField = "e"
+
+chatRoomTypeClass = "fx.b"
+
+watermarkClass = "a10.h0"
+watermarkMemberListField = "a"
+
+oauthHelperClass = "m91.a"
+oauthHelperStaticClass = "m91.a$a"
+oauthHelperStaticInstanceField = "a"
+oauthHelperGetTokenMethod = "a"
+oauthHelperGetAuthorization = "d"
+
+hardwareClass = "zi1.g1"
+hardwareInstanceField = "a"
+hardwareGetDeviceUUIDMethod = "j"
+
+chatLogClass = "y00.c"
 
 chatLogLogIdField = "b"
 chatLogChatIdField = "e"

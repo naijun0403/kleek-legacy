@@ -9,24 +9,20 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Config(
-    @SerialName("2410230")
-    val v2410230: VersionConfig,
-
-    @SerialName("2410270")
-    val v2410270: VersionConfig,
-
     @SerialName("2410280")
     val v2410280: VersionConfig,
 
     @SerialName("2610360")
-    val v2610360: VersionConfig
+    val v2610360: VersionConfig,
+
+    @SerialName("2610370")
+    val v2610370: VersionConfig
 ) {
     fun toMap(): MutableMap<Long, VersionConfig> {
         return mutableMapOf(
-            2410230L to v2410230,
-            2410270L to v2410270,
             2410280L to v2410280,
-            2610360L to v2610360
+            2610360L to v2610360,
+            2610370L to v2610370
         )
     }
 
