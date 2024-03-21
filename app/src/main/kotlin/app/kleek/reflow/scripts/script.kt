@@ -11,7 +11,9 @@ fun main() {
 
     client.on<MessageEvent> {
         if (data.text == "!ping") {
-            channel.sendText("pong!")
+            channel.sendText("pong!").onFailure {
+                Logger.log(it.stackTraceToString())
+            }
         }
 
         if (data.text == "!channel") {

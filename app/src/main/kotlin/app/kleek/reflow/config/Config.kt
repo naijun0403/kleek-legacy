@@ -9,25 +9,17 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Config(
-    @SerialName("2410280")
-    val v2410280: VersionConfig,
-
-    @SerialName("2610360")
-    val v2610360: VersionConfig,
-
-    @SerialName("2610370")
-    val v2610370: VersionConfig
+    @SerialName("2610610")
+    val v2610610: VersionConfig
 ) {
     fun toMap(): MutableMap<Long, VersionConfig> {
         return mutableMapOf(
-            2410280L to v2410280,
-            2610360L to v2610360,
-            2610370L to v2610370
+            2610610L to v2610610
         )
     }
 
     fun getByVersionCode(versionCode: Long): VersionConfig {
-        return toMap()[versionCode] ?: toMap()[2410280L]!!
+        return toMap()[versionCode] ?: toMap()[2610610L]!!
     }
 
     companion object {

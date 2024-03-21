@@ -29,6 +29,6 @@ val DefaultToml = Toml(
     )
 )
 
-inline fun JSONObject.toKotlinxSerialization(): JsonObject {
+fun JSONObject.toKotlinxSerialization(): JsonObject {
     return DefaultJson.decodeFromString(JsonObject.serializer(), toString())
 }

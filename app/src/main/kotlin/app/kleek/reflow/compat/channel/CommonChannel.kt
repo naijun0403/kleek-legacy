@@ -77,10 +77,14 @@ class CommonChannel(
     }
 
     override fun send(chat: Chat, noSeen: Boolean): Result<ChatLog> {
+        Logger.log("calling send function")
+
         val log = NativeChatSendingLogBuilder(chat.type, channelId)
             .message(chat.text)
             .attachment(chat.attachment)
             .build()
+
+        Logger.log(log.toString())
 
         return CoroutineScope(Dispatchers.IO).runCatching {
             val requestClass = classLoader.loadClass(versionConfig.chatSendingLogRequestClass)
@@ -93,17 +97,19 @@ class CommonChannel(
 
             val instance = requestClass.getConstructor(
                 classLoader.loadClass(versionConfig.chatRoomClass),
-                classLoader.loadClass(versionConfig.chatSendingLogClass),
                 classLoader.loadClass(versionConfig.chatSendingTypeClass),
-                Boolean::class.java,
                 classLoader.loadClass(versionConfig.sendEventHandlerClass),
+                classLoader.loadClass(versionConfig.chatSendingLogClass),
+                Boolean::class.java,
             ).newInstance(
                 nativeChannel.channel,
-                log,
                 type,
+                null,
+                log,
                 false,
-                null
             )
+
+            Logger.log(instance.toString())
 
             val result = requestClass.getDeclaredMethod(versionConfig.chatLogSendingMethod).invoke(instance)
 
