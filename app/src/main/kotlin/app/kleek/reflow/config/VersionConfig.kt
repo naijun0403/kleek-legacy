@@ -39,6 +39,7 @@ data class VersionConfig(
 
     val chatSendingLogBuilderMessageProperty: String,
     val chatSendingLogBuilderAttachmentProperty: String,
+    val chatSendingLogBuilderPhotosProperty: String,
     val chatSendingLogBuilderBuildMethod: String,
 
     val chatSendingLogRequestClass: String,
@@ -99,4 +100,11 @@ data class VersionConfig(
     val chatLogPrevIdField: String,
     val chatLogRefererField: String,
     val chatLogSupplementField: String,
+
+    val photoModelClass: String,
+
+    val talkPreferencesQualityDataClass: String,
+    val talkPreferencesQualityFinderClass: String,
+    val talkPreferencesQualityFinderMethod: String,
+
 )

@@ -34,12 +34,14 @@ chatSendingLogBuilderClass = "com.kakao.talk.manager.send.sending.ChatSendingLog
 
 chatSendingLogBuilderMessageProperty = "d"
 chatSendingLogBuilderAttachmentProperty = "c"
+chatSendingLogBuilderPhotosProperty = "l"
 chatSendingLogBuilderBuildMethod = "a"
 
 chatSendingLogRequestClass = "com.kakao.talk.manager.send.ChatSendingLogRequest"
 chatSendingTypeClass = "com.kakao.talk.manager.send.ChatSendingLogRequest$c"
 
-chatLogSendingMethod = "r"
+# chatLogSendingMethod = "r"
+chatLogSendingMethod = "j"
 
 chatRoomClass = "f30.h"
 
@@ -94,3 +96,8 @@ chatLogMessageIdField = "o"
 chatLogPrevIdField = "s"
 chatLogRefererField = "v"
 chatLogSupplementField = "x"
+
+photoModelClass = "com.kakao.talk.manager.send.sending.ChatSendingLog$f"
+talkPreferencesQualityDataClass = "ln1.d$a"
+talkPreferencesQualityFinderClass = "ln1.d$a$a"
+talkPreferencesQualityFinderMethod = "a"

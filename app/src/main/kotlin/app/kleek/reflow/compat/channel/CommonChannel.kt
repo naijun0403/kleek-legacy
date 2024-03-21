@@ -82,6 +82,7 @@ class CommonChannel(
         val log = NativeChatSendingLogBuilder(chat.type, channelId)
             .message(chat.text)
             .attachment(chat.attachment)
+            .photos(chat.photos)
             .build()
 
         Logger.log(log.toString())

@@ -2,6 +2,7 @@ package app.kleek.reflow.compat.chat
 
 import app.kleek.expand.DefaultJson
 import app.kleek.reflow.compat.chat.content.Content
+import app.kleek.reflow.compat.model.PhotoModel
 import kotlinx.serialization.builtins.MapSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.JsonElement
@@ -14,13 +15,15 @@ data class Chat(
     val type: Int,
     val text: String,
     val attachment: JsonObject = buildJsonObject { },
+    val photos: List<PhotoModel> = listOf()
 ) {
 
     constructor(
         type: ChatType,
         text: String,
         attachment: JsonObject = buildJsonObject { },
-    ) : this(type.type, text, attachment)
+        photos: List<PhotoModel> = listOf()
+    ) : this(type.type, text, attachment, photos)
 
     companion object {
         fun newBuilder(): Builder {
