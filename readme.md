@@ -1,3 +1,5 @@
+# Deprecated! - Move To [Here](https://github.com/naijun0403/kleek)
+
 # Kleek - An Android App for Creating KakaoTalk Bots using Xposed API
 
 ## Introduction
